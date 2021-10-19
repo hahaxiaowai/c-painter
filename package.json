@@ -1,0 +1,16 @@
+{
+  "name": "c-painter",
+  "version": "0.1.0",
+  "description": "painter box",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "canvas",
+    "painter",
+    "2D"
+  ],
+  "author": "hhxy",
+  "license": "MIT"
+}
