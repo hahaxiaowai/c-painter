@@ -1,5 +1,5 @@
-import { initCanvas } from './dom';
-class Painter{
+import { initCanvas } from './dom.js';
+export default class Painter{
   constructor(elementId){
     // 初始化Dom元素
     const res = initCanvas(elementId);
