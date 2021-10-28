@@ -3,8 +3,7 @@ export function initCanvas(elementId) {
   if (!parentDiv) {
     console.error("请传入正确的Div id");
     return;
-  }
-  console.log(parentDiv.style)
+  }  
   // 存储画布
   const canvas_storage = document.createElement("canvas");
   setStyle(canvas_storage,parentDiv)
