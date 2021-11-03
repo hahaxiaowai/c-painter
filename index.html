@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>testPainter</title>
-  <style >
-    #c_painter{
-      width: 100vw;
-      height: 100vh;
-      padding: 0;
-      margin: 0;
-    }
-    body{
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-</head>
-<body>
-  <div id='c_painter'></div>
-</body>
-<script type="module">
-import Painter from './src/index.js';
-const painter = new Painter('c_painter');
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testPainter</title>
+    <style>
+      #c_painter {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .btn {
+        position: absolute;
+        top: 3vh;
+        right: 3vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="c_painter">
+      <div class="btns">
+        <div><button onclick="painter.prev()">上一步</button> <button onclick="painter.next()">下一步</button></div>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    import Painter from "./src/index.js";
+    const painter = new Painter("c_painter");
+  </script>
 </html>

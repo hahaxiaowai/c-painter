@@ -1,8 +1,8 @@
 export default class DrawState{
   constructor(){
-    // freePan 自由绘制
+    // freePen 自由绘制
     // eraser 橡皮擦
-    this.drawMode = 'freePan';
+    this.drawMode = 'freePen';
     // 画笔粗细
     this.drawWidth = 1;
     // 画笔颜色

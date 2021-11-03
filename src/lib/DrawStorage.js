@@ -3,6 +3,11 @@ export default class DrawStorage {
     this.storage = [];
     this.curIndex = 0;
   }
+  /**
+   * 添加
+   * @param {String} base64 图片
+   * @param {index|undefined} index 索引
+   */
   add(base64, index) {
     // 没有index直接添加到最后，有则将index之后的记录删掉，然后添加
     if (index) {
@@ -13,7 +18,7 @@ export default class DrawStorage {
       index: this.storage.length ,
       image: base64,
     });
-    this.curIndex = this.storage.length - 1;
+    this.curIndex = this.storage.length;
   }
   next(index) {
     this.curIndex = index + 1;

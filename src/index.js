@@ -11,6 +11,12 @@ export default class Painter {
     this.storage = storage;
     this.state = state;
     // 初始化事件
-    initEvent(this.doms,this.state);
+    initEvent(this.doms,this.state,this.storage);
+  }
+  next(){
+    this.storage.next()
+  }
+  prev(){
+    this.storage.prev()
   }
 }
