@@ -15,20 +15,19 @@ export default class DrawStorage {
       this.storage.splice(index, delCount);
     }
     this.storage.push({
-      index: this.storage.length ,
+      index: this.storage.length,
       image: base64,
     });
-    this.curIndex = this.storage.length;
+    this.curIndex = this.storage.length - 1;
   }
-  next(index) {
+  next() {
     this.curIndex = index + 1;
     return this.storage[index + 1];
   }
-  prev(index) {
-    if (index) {
+  prev() {
+    if (index - 1 > 0) {
       this.curIndex = index - 1;
-      return this.storage[index - 1];
     }
-    return this.storage[0];
+    return this.storage[index - 1];
   }
 }

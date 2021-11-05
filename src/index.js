@@ -1,22 +1,24 @@
-import { initCanvas } from "./initFunction/dom.js";
-import { initVariable } from "./initFunction/variable.js";
-import { initEvent } from "./initFunction/event.js";
+import Doms from "./lib/Doms.js";
+import DrawState from "./lib/DrawState.js";
+import DrawStorage from "./lib/DrawStorage.js";
+import Event  from "./lib/Event.js"
 export default class Painter {
   constructor(elementId) {
     // 初始化Dom元素
     // canvas_storage,ctx_storage,canvas_base,ctx_base,canvas_draw,ctx_draw
-    this.doms = initCanvas(elementId);
+    this.doms = new Doms(elementId);
     // 初始化变量池
-    const { storage, state } = initVariable();
-    this.storage = storage;
-    this.state = state;
+    // 绘制记录
+    this.storage = new DrawStorage();
+    // 绘制状态（画笔、橡皮擦、画笔粗细）
+    this.state = new DrawState();
     // 初始化事件
-    initEvent(this.doms,this.state,this.storage);
+    this.event = new Event(this.doms, this.state, this.storage);
   }
-  next(){
-    this.storage.next()
+  next() {
+    const storage = this.storage.next();
   }
-  prev(){
-    this.storage.prev()
+  prev() {
+    this.storage.prev();
   }
 }
