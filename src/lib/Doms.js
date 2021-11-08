@@ -44,8 +44,15 @@ export default class Doms {
       ctx.drawImage(img, 0, 0, this.width, this.height);
     };
   }
+  imortImage(file){
+    const fileReader = new FileReader();
+    const base64 = fileReader.readAsDataURL(file);
+    thiis.drawImage(base64,this.canvas_base);
+    
+  }
   // 清空画布
   clearCanvas(ctx) {
     ctx.clearRect(0, 0, this.width, this.height);
   }
+  
 }
