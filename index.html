@@ -16,22 +16,26 @@
         margin: 0;
         padding: 0;
       }
-      .btn {
+      .btns {
         position: absolute;
         top: 3vh;
         right: 3vh;
+        z-index: 10;
       }
     </style>
   </head>
   <body>
     <div id="c_painter">
       <div class="btns">
-        <div><button onclick="painter.prev()">上一步</button> <button onclick="painter.next()">下一步</button></div>
+        <div><button>上一步</button> <button>下一步</button></div>
       </div>
     </div>
   </body>
-  <script type="module">
+  <script  type="module">
     import Painter from "./src/index.js";
-    const painter = new Painter("c_painter");
+    var painter = new Painter("c_painter");
+    const btns = document.getElementsByTagName('button');
+    btns[0].addEventListener('click',()=>{painter.prev()} )
+    btns[1].addEventListener('click',()=>{painter.next()})
   </script>
 </html>

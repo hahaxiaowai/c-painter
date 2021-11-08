@@ -39,7 +39,6 @@ export default class Event{
     doms.ctx_draw.closePath();
     state.boolDraw = false;
     storage.add(toBase64(doms.canvas_draw))
-    console.log(storage)
   }
   
 }

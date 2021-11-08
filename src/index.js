@@ -17,8 +17,10 @@ export default class Painter {
   }
   next() {
     const storage = this.storage.next();
+    this.doms.drawImage(storage.image,this.doms.ctx_draw);
   }
   prev() {
-    this.storage.prev();
+    const storage = this.storage.prev();
+    this.doms.drawImage(storage.image,this.doms.ctx_draw);
   }
 }

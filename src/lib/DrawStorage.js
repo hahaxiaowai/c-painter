@@ -21,13 +21,15 @@ export default class DrawStorage {
     this.curIndex = this.storage.length - 1;
   }
   next() {
-    this.curIndex = index + 1;
-    return this.storage[index + 1];
+    if(this.curIndex !== this.storage.length -1){
+      this.curIndex +=1;
+    }
+    return this.storage[this.curIndex];
   }
   prev() {
-    if (index - 1 > 0) {
-      this.curIndex = index - 1;
+    if (this.curIndex - 1 >= 0) {
+      this.curIndex -= 1;
     }
-    return this.storage[index - 1];
+    return this.storage[this.curIndex];
   }
 }
