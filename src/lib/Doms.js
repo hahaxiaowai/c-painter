@@ -1,3 +1,5 @@
+import { toBase64 } from "./normal.js";
+
 export default class Doms {
   constructor(elementId) {
     this.initCanvas(elementId);
@@ -12,7 +14,7 @@ export default class Doms {
     // 高宽
     this.width = parentDiv.clientWidth;
     this.height = parentDiv.clientHeight;
-    // 存储画布
+    // 存储画布-用于导出
     this.canvas_storage = document.createElement("canvas");
     this.setStyle(this.canvas_storage, parentDiv);
     this.ctx_storage = this.canvas_storage.getContext("2d");
@@ -37,22 +39,36 @@ export default class Doms {
   }
   // 绘制图片
   drawImage(image, ctx) {
-    const img = new Image();
-    img.src = image;
-    img.onload = () => {
-      this.clearCanvas(ctx);
-      ctx.drawImage(img, 0, 0, this.width, this.height);
-    };
-  }
-  imortImage(file){
-    const fileReader = new FileReader();
-    const base64 = fileReader.readAsDataURL(file);
-    thiis.drawImage(base64,this.canvas_base);
+    if(typeof image === 'string'){
+      const img = new Image();
+      img.src = image;
+      img.onload = () => {
+        this.clearCanvas(ctx);
+        ctx.drawImage(img, 0, 0, this.width, this.height);
+      };
+    } else {
+      ctx.drawImage(image, 0, 0, this.width, this.height);
+    }
     
   }
   // 清空画布
   clearCanvas(ctx) {
     ctx.clearRect(0, 0, this.width, this.height);
+  }
+
+  imortImage(file){
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload=(e)=>{
+      this.drawImage(e.currentTarget.result,this.ctx_base);
+    }
+  }
+  // 导出图片
+  exportImage(){
+    this.clearCanvas(this.ctx_storage);
+    this.drawImage(this.canvas_base,this.ctx_storage);
+    this.drawImage(this.canvas_draw,this.ctx_storage);
+    return toBase64(this.canvas_storage);
   }
   
 }

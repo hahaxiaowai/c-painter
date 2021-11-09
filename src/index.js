@@ -23,4 +23,14 @@ export default class Painter {
     const storage = this.storage.prev();
     this.doms.drawImage(storage.image,this.doms.ctx_draw);
   }
+  importBaseImage(file){
+    this.doms.imortImage(file)
+  }
+  downImage(){
+    const base64 = this.doms.exportImage();
+    const aTag= document.createElement('a');
+    aTag.download = 'painter' + "." + 'jpg';
+    aTag.href =base64;
+    aTag.click();
+  }
 }
