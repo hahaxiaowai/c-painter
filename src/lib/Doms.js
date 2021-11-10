@@ -49,7 +49,22 @@ export default class Doms {
     } else {
       ctx.drawImage(image, 0, 0, this.width, this.height);
     }
-    
+  }
+  /**
+   * 绘制矩形
+   * @param {*} ctx 
+   * @param {*} x 
+   * @param {*} y 
+   * @param {*} width 
+   * @param {*} height 
+   * @param {*} type fill stroke 填充、边框 
+   */
+  drawRect(ctx,x,y,width,height,type){
+    if(type==='fill'){
+      ctx.fillRect(x, y, width, height) 
+    } else {
+      strokeRect(x, y, width, height)
+    }
   }
   // 清空画布
   clearCanvas(ctx) {
