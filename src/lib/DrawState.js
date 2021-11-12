@@ -1,3 +1,5 @@
+import { checkColor } from "./normal";
+
 export default class DrawState {
   constructor() {
     // freePen 自由绘制
@@ -18,6 +20,23 @@ export default class DrawState {
     }
     this.drawMode = mode;
   }
-  changeWidth() {}
-  changeColor() {}
+  changeWidth(width,ctx) {
+    if( typeof width === "Number"){
+      this.drawWidth = width;
+      ctx.lineWidth = width;
+    } else {
+      console.error('输入正确的数字')
+    }
+    
+
+  }
+  changeColor(color,ctx) {
+    if(checkColor(color)) {
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      this.drawColor = color;
+    } else {
+      console.error('传入#,rgb,argb格式颜色')
+    }
+  }
 }

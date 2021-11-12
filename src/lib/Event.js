@@ -18,6 +18,7 @@ export default class Event{
     doms.canvas_draw.ontouchend = (e) => this.penUp(e, doms, state,storage);
   }
   penDown(e, ctx_draw, state) {
+    // Path2D
     ctx_draw.beginPath();
     const x = e.layerX;
     const y = e.layerY;
