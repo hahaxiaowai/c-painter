@@ -1,4 +1,4 @@
-import { checkColor } from "./normal";
+import { checkColor } from "./normal.js";
 
 export default class DrawState {
   constructor() {
@@ -11,7 +11,7 @@ export default class DrawState {
     this.drawColor = "#000000";
     // 是否绘制正在绘制
     this.boolDraw = false;
-    this.modes = ["freePen", "eraser"];
+    this.modes = ["freePen", "eraser","lineDash","text"];
   }
   changeMode(mode) {
     if (this.modes.findIndex(mode) >= 0) {
@@ -27,8 +27,6 @@ export default class DrawState {
     } else {
       console.error('输入正确的数字')
     }
-    
-
   }
   changeColor(color,ctx) {
     if(checkColor(color)) {
@@ -38,5 +36,12 @@ export default class DrawState {
     } else {
       console.error('传入#,rgb,argb格式颜色')
     }
+  }
+  changeLineStyle(options,ctx){
+    const lineCap = ['butt','round','square'];
+    const lineJoin = ['round', 'bevel', 'miter'];
+    if(options.lineCap && lineCap.indexOf( options.lineCap)>=0) ctx.lineCap = options.lineCap;
+    if(options.lineJoin && lineJoin.indexOf(options.lineJoin)>=0) ctx.lineJoin= options.lineJoin;
+
   }
 }
