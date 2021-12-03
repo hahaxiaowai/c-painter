@@ -13,3 +13,5 @@
 5. TS重构 注释
 6. 中英双语的支持
 7. 自定义绘制模式
+
+![Alt](https://repobeats.axiom.co/api/embed/025fc5d33ea44b5a8a34e74d4365e510073a78ce.svg "Repobeats analytics image")
