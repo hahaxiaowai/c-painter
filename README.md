@@ -16,3 +16,5 @@
 
 ## 额外
 1. 橡皮擦的形状
+
+![Alt](https://repobeats.axiom.co/api/embed/025fc5d33ea44b5a8a34e74d4365e510073a78ce.svg "Repobeats analytics image")
