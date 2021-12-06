@@ -1,4 +1,4 @@
-import { checkColor } from "./normal";
+import { checkColor } from "./normal.js";
 
 export default class DrawState {
   constructor() {
@@ -14,7 +14,7 @@ export default class DrawState {
     this.modes = ["freePen", "eraser"];
   }
   changeMode(mode) {
-    if (this.modes.findIndex(mode) >= 0) {
+    if (this.modes.indexOf(mode) < 0) {
       console.error("非正确的绘制模式");
       return;
     }

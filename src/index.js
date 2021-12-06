@@ -39,4 +39,7 @@ export default class Painter {
   changeWidth(width) {
     this.state.changeWidth(width, this.doms.ctx_draw);
   }
+  changeMode(mode){
+    this.state.changeMode(mode)
+  }
 }
