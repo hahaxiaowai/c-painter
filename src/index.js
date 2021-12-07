@@ -3,7 +3,7 @@ import DrawState from "./lib/DrawState.js";
 import DrawStorage from "./lib/DrawStorage.js";
 import Event from "./lib/Event.js";
 export default class Painter {
-  constructor(elementId) {
+  constructor(elementId,options) {
     // 初始化Dom元素
     // canvas_storage,ctx_storage,canvas_base,ctx_base,canvas_draw,ctx_draw
     this.doms = new Doms(elementId);
@@ -11,7 +11,7 @@ export default class Painter {
     // 绘制记录
     this.storage = new DrawStorage();
     // 绘制状态（画笔、橡皮擦、画笔粗细）
-    this.state = new DrawState();
+    this.state = new DrawState(this.doms);
     // 初始化事件
     this.event = new Event(this.doms, this.state, this.storage);
   }
@@ -34,10 +34,10 @@ export default class Painter {
     aTag.click();
   }
   changeColor(color) {
-    this.state.changeColor(color, this.doms.ctx_draw);
+    this.state.changeColor(color);
   }
   changeWidth(width) {
-    this.state.changeWidth(width, this.doms.ctx_draw);
+    this.state.changeWidth(width);
   }
   changeMode(mode){
     this.state.changeMode(mode)

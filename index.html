@@ -30,6 +30,8 @@
         <div><button>上一步</button> <button>下一步</button></div>
         <div>上传：<input type="file"  name="file" id="doc" multiple="multiple"  style="width:75px;" onchange="" accept="image/*" /><button>导出</button> </div>
         <div><button>笔</button> <button>橡皮</button></div>
+        <div><button>粗</button><button>细</button></div>
+        <div><button>蓝</button><button>绿</button></div>
       </div>
     </div>
   </body>
@@ -44,6 +46,10 @@
 
     btns[3].addEventListener('click',()=>{painter.changeMode('freePen')})
     btns[4].addEventListener('click',()=>{painter.changeMode('eraser')})
+    btns[5].addEventListener('click',()=>{painter.changeWidth(painter.state.drawWidth+5)})
+    btns[6].addEventListener('click',()=>{painter.changeWidth(painter.state.drawWidth-5)})
+    btns[7].addEventListener('click',()=>{painter.changeColor('rgb(0,0,255)')})
+    btns[8].addEventListener('click',()=>{painter.changeColor('rgb(0,255,0)')})
     const input = document.getElementById('doc');
     input.addEventListener('change',(e)=>{
       painter.importBaseImage(input.files[0])
