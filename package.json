@@ -1,17 +1,17 @@
 {
   "name": "c-painter",
+  "private": true,
   "version": "0.2.0",
   "description": "painter box",
   "main": "index.js",
-  "scripts": {
-    "test": "node index.js",
-    "build": "rollup --config"
-  },
   "keywords": [
     "canvas",
     "painter",
     "2D"
   ],
+  "scripts": {
+    "build": "rollup --config"
+  },
   "author": "hhxy",
   "license": "MIT",
   "devDependencies": {
